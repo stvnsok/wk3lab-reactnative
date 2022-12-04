@@ -1,10 +1,33 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import Fact from './Fact';  
+import Items from './Items';
+import { 
+  StyleSheet, 
+  Text, 
+  View, 
+  Image, 
+  FlatList,
+  Alert,
+
+} from 'react-native';
 
 export default function App() {
+
   return (
+
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <View>
+        <FlatList 
+          data = {Fact}
+          renderItem = {({item}) => <Items item={item}/>}
+          horizontal
+          showsHorizontalScrollIndicator
+          pagingEnabled
+          bounces={false}
+          
+        />
+        
+      </View>
       <StatusBar style="auto" />
     </View>
   );
